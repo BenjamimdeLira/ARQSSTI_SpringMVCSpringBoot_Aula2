@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Previsoes do Tempo</title>
+<link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+	rel="stylesheet" />
+<link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
+	rel="stylesheet" />
+</head>
+<form class="form-inline" method="POST" th:object="${aluno}" th:action="@{/alunos}" style="margin: 20px 0">
+	<div class="form-group">
+		<input type="text" class="form-control" placeholder="TempMin" th:field="*{tempMin}"/>
+		<input type="text" class="form-control" placeholder="TempMax" th:field="*{tempMax}"/>
+		<button type="submit" class="btn btn-primary">Adicionar</button>
+	</div>
+</form>
+<body>
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+			<h1 class="panel-title">PrevisoesTempo</h1>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<th th:each="previsaoTempo : ${previsoesTempo}">
+					<td th:text="${previsaoTempo.diaSemana}"></td>
+					<td th:text="${previsaoTempo.tempMax}"></td>
+					<td th:text="${previsaoTempo.tempMin}"></td>
+					<td th:text="${previsaoTempo.descricao}"></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>Segunda</td>
+						<td>33</td>
+						<td>27</td>
+						<td>Previsao de Ar Seco e baixa umidade</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
